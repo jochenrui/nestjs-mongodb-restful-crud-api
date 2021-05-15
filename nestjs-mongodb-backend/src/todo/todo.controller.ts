@@ -11,7 +11,7 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { TodoService } from './todo.service';
 
-@Controller('todo')
+@Controller('todos')
 export class TodoController {
   constructor(private readonly service: TodoService) {}
 
@@ -26,7 +26,7 @@ export class TodoController {
   }
 
   @Post()
-  async create(@Body() CreateTodoDto: CreateTodoDto) {
+  async create(@Body() createTodoDto: CreateTodoDto) {
     return await this.service.create(createTodoDto);
   }
 
