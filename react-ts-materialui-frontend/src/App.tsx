@@ -1,7 +1,11 @@
-import React from "react";
+import { Todos } from "./pages/Todos";
 
 function App() {
-  return <div>TS</div>;
+  return (
+    <div>
+      <Todos />
+    </div>
+  );
 }
 
 export default App;
