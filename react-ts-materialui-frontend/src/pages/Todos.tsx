@@ -13,7 +13,6 @@ export const Todos = () => {
       .get<Todo[]>("/todos")
       .then((response) => {
         setTodos(response.data);
-        console.log(todos);
       })
       .catch((err) => {
         console.log(err);

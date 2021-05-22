@@ -25,8 +25,10 @@ axios.interceptors.response.use(
   }
 );
 
-export default {
+const http = {
   get: axios.get,
   post: axios.post,
   delete: axios.delete,
 };
+
+export default http;
