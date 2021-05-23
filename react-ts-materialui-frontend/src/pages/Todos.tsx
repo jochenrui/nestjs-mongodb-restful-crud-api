@@ -6,6 +6,7 @@ import { TodoInput } from "../components/TodoInput";
 
 export const Todos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [todoCreated, setTodoCreated] = useState<number>(0);
 
   useEffect(() => {
     // fetch all todos
@@ -17,7 +18,7 @@ export const Todos = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [todoCreated]);
 
   const renderTodos = todos.map((todo) => {
     return (
@@ -32,7 +33,7 @@ export const Todos = () => {
   return (
     <div>
       {renderTodos}
-      <TodoInput />
+      <TodoInput updateTodos={() => setTodoCreated(todoCreated + 1)} />
     </div>
   );
 };

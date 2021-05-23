@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, Dispatch } from "react";
 import http from "../service/service";
 
-export const TodoInput = () => {
+interface Props {
+  updateTodos: () => void;
+}
+
+export const TodoInput = ({ updateTodos }: Props) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
@@ -23,6 +27,7 @@ export const TodoInput = () => {
         // clear the input after creating a Todo
         setTitle("");
         setDescription("");
+        updateTodos();
       })
       .catch((err) => {
         console.log(err);
