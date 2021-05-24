@@ -20,9 +20,10 @@ export const Todos = () => {
       });
   }, [todoCreated]);
 
-  const renderTodos = todos.map((todo) => {
+  const renderTodos = todos.map((todo, pos) => {
     return (
       <TodoCard
+        key={pos}
         title={todo.title}
         description={todo.description}
         createdAt={todo.createdAt}

@@ -1,17 +1,17 @@
 import { endpoint } from "../config/config";
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 
 axios.defaults.baseURL = endpoint;
 
 axios.interceptors.response.use(
-  (response) => {
+  (response: AxiosResponse) => {
     if (response.status) {
       return response;
     } else {
       throw new Error("request error");
     }
   },
-  (error) => {
+  (error: AxiosError) => {
     const expectedError =
       error.response &&
       error.response.status >= 400 &&

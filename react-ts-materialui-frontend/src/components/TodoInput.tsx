@@ -1,4 +1,4 @@
-import { useState, Dispatch } from "react";
+import { useState } from "react";
 import http from "../service/service";
 
 interface Props {
